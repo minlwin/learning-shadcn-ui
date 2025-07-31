@@ -1,6 +1,6 @@
 import { useSidebar } from "@/hooks/use-sidebar"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "../ui/sidebar"
-import { ArrowLeft, ChevronDown, Folder, Settings, Smile } from "lucide-react"
+import { ArrowLeft, ChevronDown, DoorClosed, DoorOpen, Folder, Home, Smile } from "lucide-react"
 import type { IconType } from "@/lib/utils"
 import { Link } from "react-router"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible"
@@ -46,11 +46,9 @@ function AppMenuGroupItem({item} : {item : MenuItem}) {
     }
 
     return <AppSingleMenu menu={item as SingleMenu} />
-
 }
 
 function AppGroupMenu({menu} : {menu : GroupMenu}) {
-
 
     return (
         <SidebarMenuItem>
@@ -119,6 +117,34 @@ type MenuGroup = {
 
 const MENU:MenuGroup[] = [
     {
+        title : 'Single Menu',
+        items : [
+            {type: 'single', title : "Single 1", icon : Home, url : ''},
+            {type: 'single', title : "Single 2", icon : DoorOpen, url : ''},
+            {type: 'single', title : "Single 3", icon : DoorClosed, url : ''},
+        ]
+    },
+    {
+        title : 'Group Menus',
+        items : [
+            {type : 'group', title: 'Group Menu 1', items : [
+                {title : 'Group Menu Item 1-1', url: ''},
+                {title : 'Group Menu Item 1-2', url: ''},
+                {title : 'Group Menu Item 1-3', url: ''},
+                {title : 'Group Menu Item 1-4', url: ''},
+            ]},
+            {type : 'group', title: 'Group Menu 2', items : [
+                {title : 'Group Menu Item 2-1', url: ''},
+                {title : 'Group Menu Item 2-2', url: ''},
+                {title : 'Group Menu Item 2-3', url: ''},
+            ]},
+            {type : 'group', title: 'Group Menu 3', items : [
+                {title : 'Group Menu Item 3-1', url: ''},
+                {title : 'Group Menu Item 3-2', url: ''},
+            ]}
+        ]
+    },
+    {
         title : 'Mix Menus',
         items : [
             {type : 'single', title : 'Single Menu', icon : Smile, url: '' },
@@ -129,5 +155,5 @@ const MENU:MenuGroup[] = [
                 {title : 'Sub Menu Item 1-4', url: ''},
             ]}
         ]
-    }
+    },
 ]
