@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "../ui/sidebar";
-import { CheckSquare, ChevronDown, Code, Folder, PenSquare, type LucideProps } from "lucide-react";
+import { CheckSquare, ChevronDown, Code, Files, Folder, PenSquare, type LucideProps } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 
 export default function AppSidebar() {
@@ -90,13 +90,20 @@ const MENU:MenuGroup[] = [
     {
         title: "Basic Usages",
         items: [
-            {type : "multiple", title: 'Inputs', items : [
+            {type : "multiple", title: 'Inputs', icon: PenSquare, items : [
                 {type : "single", title: 'Text Input', url : '/basic/input/text'},
                 {type : "single", title: 'Date Input', url : '/basic/input/date'},
                 {type : "single", title: 'Text Area', url : '/basic/input/textarea'},
             ]},
-            {type : "single", title: 'Selects', url : ''},
-            {type : "single", title: 'Checks', url : '', icon: CheckSquare},
+            {type : "multiple", title: 'Selects', icon: CheckSquare, items : [
+                {type : "single", title: 'Select One', url : '/basic/select/one'},
+                {type : "single", title: 'Select Many', url : '/basic/select/many'},
+            ]},
+            {type : "multiple", title: 'Files', icon: Files, items : [
+                {type : "single", title: 'Text File', url : '/basic/file/text'},
+                {type : "single", title: 'Image File', url : '/basic/file/image-one'},
+                {type : "single", title: 'Multiple Image Files', url : '/basic/file/image-many'},
+            ]},
         ]
     },
     {

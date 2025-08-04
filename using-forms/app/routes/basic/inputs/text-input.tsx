@@ -1,7 +1,9 @@
-import { Delete, Save, Trash } from "lucide-react"
+import { Save, Trash } from "lucide-react"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
+import FormActions from "~/components/app/form-actions"
 import FormGroup from "~/components/app/form-group"
+import FormMessage from "~/components/app/form-message"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { useFormResult } from "~/lib/context/form-result-context"
@@ -13,35 +15,39 @@ export default function TextInput() {
     useEffect(() => setTitle("Using Text Input"), [setTitle])
     const {setResult} = useFormResult()
 
-    const {handleSubmit, register, reset} = useForm<TestInputForm>()
+    const {handleSubmit, register, reset, formState : {errors}} = useForm<TestInputForm>()
     
     const action = (form: TestInputForm) => {
         setResult(JSON.stringify(form, null, 2))
     }
 
+    const clear = () => {
+        reset()
+        setResult()
+    }
+
+    useEffect(setResult, [])
+
     return (
         <form onSubmit={handleSubmit(action)}>
             <FormGroup label="Name" className="mb-3">
-                <Input {...register('name')} placeholder="Enter Name" />
+                <Input {...register('name', {required : true})} placeholder="Enter Name" />
+                {errors.name && <FormMessage message="Name is required." />}
             </FormGroup>  
             <FormGroup label="Password" className="mb-3">
-                <Input {...register('password')} type="password" placeholder="Enter Password"/>
+                <Input {...register('password', {required : true})} type="password" placeholder="Enter Password"/>
+                {errors.password && <FormMessage message="Password is required." />}
             </FormGroup>  
             <FormGroup label="Phone" className="mb-3">
-                <Input {...register('phone')} type="tel" placeholder="Enter Phone" />
+                <Input {...register('phone', {required : true})} type="tel" placeholder="Enter Phone" />
+                {errors.phone && <FormMessage message="Phone is required." />}
             </FormGroup>  
             <FormGroup label="Email" className="mb-3">
-                <Input {...register('email')} type="email" placeholder="Enter Email" />
+                <Input {...register('email', {required : true})} type="email" placeholder="Enter Email" />
+                {errors.email && <FormMessage message="Email is required." />}
             </FormGroup>  
 
-            <div>
-                <Button onClick={() => reset()} variant={"outline"} className="me-2">
-                    <Trash /> Clear
-                </Button>
-                <Button type="submit">
-                    <Save /> Save
-                </Button>
-            </div>
+            <FormActions clear={clear} />
         </form>
     )
 }

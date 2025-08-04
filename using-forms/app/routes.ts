@@ -6,10 +6,19 @@ export default [
         ...prefix("basic", [
             layout('./components/layout/basic-input.tsx', [
                 ...prefix("input", [
-                    route("text", "./routes/inputs/text-input.tsx"),
-                    route("textarea", "./routes/inputs/text-area.tsx"),
-                    route("date", "./routes/inputs/date-input.tsx"),
-                ])
+                    route("text", "./routes/basic/inputs/text-input.tsx"),
+                    route("textarea", "./routes/basic/inputs/text-area.tsx"),
+                    route("date", "./routes/basic/inputs/date-input.tsx"),
+                ]),
+                ...prefix("select", [
+                   route("one", "./routes/basic/select/select-one.tsx"),
+                   route("many", "./routes/basic/select/select-many.tsx"),
+                ]),
+                ...prefix("file", [
+                   route("text", "./routes/basic/files/text.tsx"),
+                   route("image-one", "./routes/basic/files/image-single.tsx"),
+                   route("image-many", "./routes/basic/files/image-multiple.tsx"),
+                ]),
             ])
         ])
     ])
