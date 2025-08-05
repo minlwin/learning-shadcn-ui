@@ -23,11 +23,11 @@ export default function AppDynamicLayout() {
         <SubTitleContext.Provider value={{title : subTitle, setTitle : setSubTitle}}>
             <AppSubTitle />
             <FormResultContextProvider>
-                <section className="flex gap-8 w-full mt-4 items-center">
+                <section className="flex gap-8 w-full mt-4">
                     <div className="w-full">
                         <Outlet />
                     </div>
-                    <div className="w-full">
+                    <div className="w-full pt-7">
                         <FormResultViewer />
                     </div>
                 </section>

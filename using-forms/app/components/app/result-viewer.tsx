@@ -6,6 +6,6 @@ export default function FormResultViewer() {
 
     return (
         result && 
-            <pre className="p-4 bg-black font-mono text-white">{result}</pre>      
+            <pre className="p-8 bg-black font-mono text-white rounded-md shadow">{result}</pre>      
     )
 }
