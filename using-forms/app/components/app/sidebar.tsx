@@ -109,21 +109,21 @@ const MENU:MenuGroup[] = [
     {
         title: "Essentials",
         items: [
-            {type : 'single', title : "Schema Validation", url: ''},
+            {type : 'single', title : "Schema Validation", url: '/essential/schema'},
             {type : 'multiple', title : "UI Form Components", items : [
-                {type : "single", title: 'Text Input', url : ''},
-                {type : "single", title: 'Date Input', url : ''},
-                {type : "single", title: 'Combobox', url : ''},
-                {type : "single", title: 'Radio Group', url : ''},
+                {type : "single", title: 'Text Input', url : '/essential/text'},
+                {type : "single", title: 'Date Input', url : '/essential/date'},
+                {type : "single", title: 'Select', url : '/essential/select'},
+                {type : "single", title: 'Radio Group', url : '/essential/radio'},
             ]},
         ]
     },
     {
         title: "Dynamic Form",
         items: [
-            {type : "single", title: 'Dynamic Form Field', url : ''},
-            {type : "single", title: 'Dynamic Form Array', url : ''},
-            {type : "single", title: 'Dynamic Form Group', url : ''},
+            {type : "single", title: 'Dynamic Form Array', url : '/dynamic/array'},
+            {type : "single", title: 'Dynamic Form Group', url : '/dynamic/group'},
+            {type : "single", title: 'Dynamic Form Field', url : '/dynamic/item'},
         ]
     },
 ]
