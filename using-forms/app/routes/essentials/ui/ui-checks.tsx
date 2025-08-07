@@ -1,48 +1,54 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
-import z from "zod"
+import z, { boolean } from "zod"
 import FormActions from "~/components/app/form-actions"
-import CustomRadioGroup from "~/components/custom/custom-radio-group"
+import CustomCheckBox from "~/components/custom/custom-checkbox"
+import CustomCheckBoxGroup from "~/components/custom/custom-checkbox-group"
 import { Form } from "~/components/ui/form"
 import { SUBJECTS } from "~/lib/consts"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
 
 const FormSchema = z.object({
-    subject : z.string().nonempty("Please select subject.")
+    subjects : z.array(z.string()).nonempty("Please enter subjects."),
+    accept : z.boolean()
 })
 
 type FormType = z.infer<typeof FormSchema>
 
-export default function UiRadioGroup() {
+export default function UiChecks() {
     const {setTitle} = useSubTitle()
-    useEffect(() => setTitle("Hook Form with UI Radio Group"), [setTitle])
+    useEffect(() => setTitle("Hook Form with UI Checks"), [setTitle])
 
     const {setResult} = useFormResult()
     useEffect(setResult, [])
 
     const form = useForm<FormType>({
         resolver: zodResolver(FormSchema),
-        defaultValues : {
-            subject: ""
+        defaultValues: {
+            subjects : [],
+            accept: false
         }
     })
+
+    const saveAction = (form: FormType) => {
+        setResult(JSON.stringify(form, null, 2))
+    }
 
     const clear = () => {
         form.reset()
         setResult()
     }
 
-    const saveAction = (form:FormType) => {
-        setResult(JSON.stringify(form, null, 2))
-    }
-
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(saveAction)}>
-                <CustomRadioGroup control={form.control} path="subject" className="mb-4"
-                    items={SUBJECTS} label="Subject" description="Select one subject..." />
+
+                <CustomCheckBoxGroup control={form.control} 
+                    path="subjects" label="Subjects" items={SUBJECTS} className="mb-5" />
+
+                <CustomCheckBox control={form.control} path="accept" label="Accept" className="mb-5" />      
 
                 <FormActions clear={clear} />
             </form>

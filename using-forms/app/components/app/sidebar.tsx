@@ -112,9 +112,10 @@ const MENU:MenuGroup[] = [
             {type : 'single', title : "Schema Validation", url: '/essential/schema'},
             {type : 'multiple', title : "UI Form Components", items : [
                 {type : "single", title: 'Text Input', url : '/essential/text'},
+                {type : "single", title: 'Check Box', url : '/essential/check'},
+                {type : "single", title: 'Radio Group', url : '/essential/radio'},
                 {type : "single", title: 'Date Input', url : '/essential/date'},
                 {type : "single", title: 'Select', url : '/essential/select'},
-                {type : "single", title: 'Radio Group', url : '/essential/radio'},
             ]},
         ]
     },

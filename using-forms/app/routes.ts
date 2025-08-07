@@ -28,6 +28,7 @@ export default [
                 route("date", "./routes/essentials/ui/ui-date-input.tsx"),
                 route("select", "./routes/essentials/ui/ui-select.tsx"),
                 route("radio", "./routes/essentials/ui/ui-radio-group.tsx"),
+                route("check", "./routes/essentials/ui/ui-checks.tsx"),
             ])
         ]),
         ...prefix('dynamic', [
