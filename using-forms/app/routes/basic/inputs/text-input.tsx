@@ -1,13 +1,18 @@
-import { Save, Trash } from "lucide-react"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import FormActions from "~/components/app/form-actions"
 import FormGroup from "~/components/app/form-group"
 import FormMessage from "~/components/app/form-message"
-import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
+
+export function meta() {
+  return [
+    { title: "Using Form | Text Input" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 export default function TextInput() {
 

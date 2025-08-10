@@ -1,7 +1,6 @@
 import type { FieldValues, Control, Path } from "react-hook-form"
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
-import { Select, SelectContent, SelectItem, SelectValue } from "../ui/select"
-import { SelectTrigger } from "@radix-ui/react-select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 
 export type Option = {
     value : string
@@ -31,18 +30,18 @@ export default function CustomSelect<T extends FieldValues>({
                 {label && <FormLabel>{label}</FormLabel>}
                 <Select value={field.value} onValueChange={field.onChange}  >
                     <FormControl>
-                        <SelectTrigger id={path}>
+                        <SelectTrigger id={path} className="w-full">
                             <SelectValue placeholder={placeholder ? placeholder : "Select One"} />
                         </SelectTrigger>
                     </FormControl>
+                    <SelectContent>
+                        {options.map(option => 
+                            <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                            </SelectItem>
+                        )}
+                    </SelectContent>
                 </Select>
-                <SelectContent>
-                {options.map(option => 
-                    <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                    </SelectItem>
-                )}
-                </SelectContent>
                 <FormMessage />
             </FormItem>
         } />

@@ -8,6 +8,13 @@ import { Textarea } from "~/components/ui/textarea"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
 
+export function meta() {
+  return [
+    { title: "Using Form | Textarea" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
 export default function TextAreaInput() {
 
     const {setTitle} = useSubTitle()

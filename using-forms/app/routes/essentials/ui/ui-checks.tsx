@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
-import z, { boolean } from "zod"
+import z from "zod"
 import FormActions from "~/components/app/form-actions"
 import CustomCheckBox from "~/components/custom/custom-checkbox"
 import CustomCheckBoxGroup from "~/components/custom/custom-checkbox-group"
@@ -9,6 +9,13 @@ import { Form } from "~/components/ui/form"
 import { SUBJECTS } from "~/lib/consts"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
+
+export function meta() {
+  return [
+    { title: "Using Form | UI Checks" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 const FormSchema = z.object({
     subjects : z.array(z.string()).nonempty("Please enter subjects."),

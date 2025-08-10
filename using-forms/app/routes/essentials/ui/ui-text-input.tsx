@@ -6,10 +6,15 @@ import FormActions from "~/components/app/form-actions"
 import CustomCheckBox from "~/components/custom/custom-checkbox"
 import CustomTextInput from "~/components/custom/custom-text-input"
 import { Form } from "~/components/ui/form"
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
+
+export function meta() {
+  return [
+    { title: "Using Form | UI Input" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 const FormSchema = z.object({
     name : z.string()

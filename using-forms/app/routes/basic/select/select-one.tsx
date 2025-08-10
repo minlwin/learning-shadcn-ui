@@ -7,6 +7,13 @@ import { Label } from "~/components/ui/label"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
 
+export function meta() {
+  return [
+    { title: "Using Form | Select One" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
 export default function SelectOne() {
     const {setTitle} = useSubTitle()
     const {setResult} = useFormResult()

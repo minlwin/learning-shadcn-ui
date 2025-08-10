@@ -9,6 +9,13 @@ import { SUBJECTS } from "~/lib/consts"
 import { useFormResult } from "~/lib/context/form-result-context"
 import { useSubTitle } from "~/lib/context/sub-title-context"
 
+export function meta() {
+  return [
+    { title: "Using Form | UI Radios" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
 const FormSchema = z.object({
     subject : z.string().nonempty("Please select subject.")
 })

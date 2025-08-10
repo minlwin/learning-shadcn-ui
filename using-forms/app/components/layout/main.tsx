@@ -7,6 +7,13 @@ import AppSidebar from "../app/sidebar";
 import AppTitle from "../app/title";
 import CustomCard from "../custom/custom-card";
 
+export function meta() {
+  return [
+    { title: "Using Form | Home" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
 export default function Layout() {
     const [title, setTitle] = useState<Title>()
     return (

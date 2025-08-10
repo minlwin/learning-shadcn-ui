@@ -9,6 +9,13 @@ import FormGroup from "~/components/app/form-group"
 import { Input } from "~/components/ui/input"
 import FormMessage from "~/components/app/form-message"
 
+export function meta() {
+  return [
+    { title: "Using Form | Zod Schema" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
 const FormSchema = z.object({
     name: z.string().nonempty("Name is required."),
     email : z.email("Invalid email.").nonempty("Email is required"),
