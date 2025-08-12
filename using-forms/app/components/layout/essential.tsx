@@ -28,7 +28,7 @@ export default function AppEssentialLayout() {
                     <div className="w-full">
                         <Outlet />
                     </div>
-                    <div className="w-full pt-7">
+                    <div className="w-full">
                         <FormResultViewer />
                     </div>
                 </section>

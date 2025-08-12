@@ -122,8 +122,8 @@ const MENU:MenuGroup[] = [
     {
         title: "Dynamic Form",
         items: [
+            {type : "single", title: 'Form Group', url : '/dynamic/group'},
             {type : "single", title: 'Dynamic Form Array', url : '/dynamic/array'},
-            {type : "single", title: 'Dynamic Form Group', url : '/dynamic/group'},
             {type : "single", title: 'Dynamic Form Field', url : '/dynamic/item'},
         ]
     },

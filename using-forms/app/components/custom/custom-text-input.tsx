@@ -4,9 +4,9 @@ import { Input } from "../ui/input"
 import type React from "react"
 
 export type CustomTextInputProps<T extends FieldValues> = {
-    label : string
     control : Control<T>
     path : Path<T>
+    label? : string
     className? : string,
     placeholder? : string,
     type? : React.HTMLInputTypeAttribute
@@ -23,7 +23,7 @@ export default function CustomTextInput<T extends FieldValues>({
     return (
         <FormField control={control} name={path} render={({field}) => 
             <FormItem className={className}>
-                <FormLabel>{label}</FormLabel>
+                {label && <FormLabel>{label}</FormLabel>}
                 <FormControl>
                     <Input {...field} type={type} placeholder={placeholder ? placeholder : `Enter ${label}.`} />
                 </FormControl>
